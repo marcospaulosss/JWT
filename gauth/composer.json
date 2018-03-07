@@ -1,9 +1,9 @@
 {
-  "name": "gauth/jwt",
+  "name": "JWT/gauth",
   "type": "library",
-  "description": "JWT authentication library for Phalcon 3 based in Json Web Token standard",
+  "description": "JWT authentication Phalcon 3 based in Json Web Token",
   "keywords": ["phalcon","jwt"],
-  "homepage": "https://github.com/infobuscador/gAuth",
+  "homepage": "https://git@github.com:marcospaulosss/JWT.git",
   "require": {
     "php": ">=5.6.0"
   }
