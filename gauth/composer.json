@@ -1,5 +1,5 @@
 {
-  "name": "JWT",
+  "name": "marcospaulosss/JWT",
   "type": "library",
   "description": "JWT authentication Phalcon 3 based in Json Web Token",
   "keywords": ["phalcon","jwt"],
