@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Project: Phalcon 3 Api Skelenton
- * Copyright (c) 2016 Iulian Gafiu
- * For the full copyright and license information,
- * please view the LICENSE file that was distributed
- * with this source code.
- */
-
 use \Phalcon\Di;
 
 /**
@@ -60,14 +52,14 @@ class gAuth
      * @see var gAuth::$cookies
      * @see var gAuth::$request
      */
-    public function __construct($secret)
+    public function __construct()
     {
         $this->token = new stdClass();
         $this->crypt = Di::getDefault()->get('crypt');
         $this->cookies = Di::getDefault()->get('cookies');
         $this->request = Di::getDefault()->get('request');
 
-        $this->secret = $secret;
+        $this->secret = '&1qjeG[=?219~5^"4;/estrategiaT3#7';
     }
 
     /**
@@ -88,7 +80,8 @@ class gAuth
      */
     public function store()
     {
-        $this->cookies->set('_token', $this->token->hash, $this->params->exp, '/')->send();
+        //$this->cookies->set('_token', $this->token->hash, $this->params->exp, '/')->send();
+        $_SESSION['_token'] = $this->token->hash;
     }
 
 
@@ -97,7 +90,9 @@ class gAuth
      */
     public function getStoredToken()
     {
-        return (string)$this->cookies->get('_token');
+      //return (string)$this->cookies->get('_token');
+
+      return $_SESSION['_token'];
     }
 
 
@@ -195,6 +190,10 @@ class gAuth
      */
     public function validExp()
     {
+
+      $exp = $this->getExp();
+      $time = time();
+
         if ($this->getExp() > time())
             return true;
     }
