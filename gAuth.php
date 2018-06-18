@@ -60,14 +60,14 @@ class gAuth
      * @see var gAuth::$cookies
      * @see var gAuth::$request
      */
-    public function __construct()
+    public function __construct($secret)
     {
         $this->token = new stdClass();
         $this->crypt = Di::getDefault()->get('crypt');
         $this->cookies = Di::getDefault()->get('cookies');
         $this->request = Di::getDefault()->get('request');
 
-        $this->secret = '&1qjeG[=?219~5^"4;/zmzcVerT3#7';
+        $this->secret = $secret;
     }
 
     /**
